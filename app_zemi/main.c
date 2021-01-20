@@ -179,11 +179,14 @@ int del(Address *ap, int cnt)
 int printall(Address *ap, int cnt)
 {
   int i = 0;
-
+  FILE *outputfile;         // 出力ストリーム
+    
   while (i < cnt) {
-    printf("%d: 氏名:%s 郵便番号:%s 住所:%s 電話番号:%s メールアドレス:%s\n", ++i, ap->szName, ap->szPos, ap->szAdd, ap->szTel, ap->szMail);
+      
+    fprintf(outputfile, "%d: 氏名:%s 郵便番号:%s 住所:%s 電話番号:%s メールアドレス:%s\n", ++i, ap->szName, ap->szPos, ap->szAdd, ap->szTel, ap->szMail); // ファイルに書く
+      
     ap++; /* 配列へのポインタが次の配列要素を指すようにする */
   }
-
+  fclose(outputfile);          // ファイルをクローズ(閉じる)
   return cnt;
 }
