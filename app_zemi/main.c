@@ -179,8 +179,10 @@ int del(Address *ap, int cnt)
 int printall(Address *ap, int cnt)
 {
   int i = 0;
+  
   FILE *outputfile;         // 出力ストリーム
-    
+  outputfile = fopen("/Users/labd/Downloads/ゼミ総合演習課題/app_zemi/graph2.txt", "w"); //txtファイルをプロジェクトの中に用意してあげる
+  
   while (i < cnt) {
       
     fprintf(outputfile, "%d: 氏名:%s 郵便番号:%s 住所:%s 電話番号:%s メールアドレス:%s\n", ++i, ap->szName, ap->szPos, ap->szAdd, ap->szTel, ap->szMail); // ファイルに書く
